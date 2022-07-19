@@ -6,7 +6,12 @@
  */
 
     function sumPrimes(num) {
-        return num ;
+        let newNum = 3;
+        for(let i = 1; i < num; i++) {
+            if(num % i == 0) {
+                console.log(i);
+            }
+        }
+
     }
-    console.log(sumPrimes(10));
     console.log(sumPrimes(10));

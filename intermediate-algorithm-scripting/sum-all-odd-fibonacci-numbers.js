@@ -34,3 +34,5 @@
     console.log(sumFibs(4)); // should return 5.
     console.log(sumFibs(75024)); // should return 60696.
     console.log(sumFibs(75025)); // should return 135721.
+
+    console.log("Te");

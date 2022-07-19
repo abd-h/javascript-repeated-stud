@@ -1,3 +1,4 @@
 {
-    "Server.settings.port": 5502
+    "Server.settings.port": 5502,
+    "livePreview.defaultPreviewPath": "/intermediate-algorithm-scripting/index.html"
 }
