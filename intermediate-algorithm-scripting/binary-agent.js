@@ -11,7 +11,6 @@
     function binaryAgent(str) {
         let newStr = str.split(" ").slice();
         return newStr.reduce((acc, current) => {
-            console.log(String.fromCharCode(parseInt(current, 2)));
             acc.push(String.fromCharCode(parseInt(current, 2)))
             return acc;
         }, []).join("")
