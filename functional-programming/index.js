@@ -653,6 +653,8 @@ console.log([1, 1, 2, 5, 2].myMap2((element, index, array) => array[index + 1] |
         }
         return newArr;
     }
+//              Test
+
     console.log([23, 65, 98, 5, 13].myFilter(item => item % 2)); 
     //should equal [23, 65, 5, 13].
 
@@ -663,3 +665,164 @@ console.log([1, 1, 2, 5, 2].myMap2((element, index, array) => array[index + 1] |
     //should return [1, 2, 5].
 
 //    Your code should not use the filter method.
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==== 
+
+    Return Part of an Array Using the slice Method
+
+    The slice method returns a copy of certain elements of an array. It can take two arguments,
+        1. The first argument gives the index of where to begin the slice
+        2. The second is the index for where to end the slice (and its non-inclusive). 
+        
+    If the arguments are not provided, the default is to start at the beginning of the array through 
+    the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
+
+    Here's an example:
+*/
+    const arr = ["Cat", "Dog", "Tiger", "Zebra"],
+        newArray = arr.slice(1, 3);
+    console.log(newArray); // returns ['Dog', 'Tiger']
+
+/*  Use the slice method in the sliceArray function to return part of the anim array
+    given the provided beginSlice and endSlice indices. 
+    
+    function sliceArray(anim, beginSlice, endSlice) {
+         // Only change code below this line
+
+
+         // Only change code above this line
+    }
+
+    const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+    sliceArray(inputAnim, 1, 3);    */
+
+    function sliceArray(anim, beginSlice, endSlice) {
+        return anim.slice(beginSlice, endSlice);
+    }
+
+    const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+
+    console.log(sliceArray(inputAnim, 1, 3));
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++======
+
+    Remove Elements from an Array Using slice Instead of splice
+
+    A common pattern while working with arrays is when you want to remove items and keep 
+    the rest of the array. JavaScript offers the splice method for this, which takes arguments for
+    the index of where to start removing items, then the number of items to remove. If the second argument is not provided, the default is to remove items through the end. However, the splice methode mutates the original array it is called on. Here's an example:
+*/    
+
+    const cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+    cities.splice(3, 1);
+/*  Here splice returns the string London and deletes it from the cities array. 
+    cities will have the value ["Chicago", "Delhi", "Islamabad", "Berlin"].
+    
+    As we saw in the last challenge, the slice method does not mutate the original array,
+    but returns a new one which can be saved into a variable. recall that the slice method takes two arguments for the indices to begin and end slice (the end is non-inclusive), and returns those items in a new array. Using the slice method instead of splice helps to avoid any array-mutating side effects.
+
+    Rewrite the function nonMutatingSplice by using slice instead of splice. It should limit 
+    the provided cities array to a length of 3, and return a new array with only the first three items. 
+
+    Do not mutate the original array provided to the function.
+
+    function nonMutatingSplice(cities) {
+         // Only change code below this line
+        return cities.splice(3);
+
+        // Only change code above this line
+    }
+
+    const inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+    nonMutatingSplice(inputCities);
+    */    
+
+    function nonMutatingSplice(cities) {
+        return cities.slice(0, 3);
+    }
+
+
+        //  Tests
+    //Your code should use the slice method.
+    //Your code should not use the splice method.
+    //The inputCities array should not change.
+    console.log(nonMutatingSplice(["Chicago", "Delhi", "Islamabad", "London", "Berlin"]))
+    // should return ["Chicago", "Delhi", "Islamabad"].
+
+/*  +++++++++++++++++++++++++++++++++++++++++++++++=========
+
+    Combine Two Arrays Using the concat Method
+    
+    Concatenation means to join items end to end. JavScript offers concat method for both 
+    strings and arrays that work in the same way. For arrays, the method is called on one, 
+    then another array is provided as the argument to concat, which added to the end of the 
+    first array. It returns a new array and does not mutate either of the original arrays. 
+
+    Here's an example: 
+
+    [1, 2, 3].concat([4, 5, 6]);
+    The return array would be [1, 2, 3, 4, 5, 6];
+
+    Use the concat method in the nonMutatingConcat function to concatenate attach to the en of 
+    original. The function should return the concatenated array.
+
+    function nonMutatingConcat(original, attach) {
+        // Only change code below this line
+
+
+        // Only change code above this line
+    }
+
+    const first = [1, 2, 3];
+    const second = [4, 5];
+    nonMutatingConcat(first, second);
+        */    
+
+    function nonMutatingConcat(original, attach) {
+        return original.concat(attach);
+    }
+
+    const first = [1, 2, 3],
+          second = [4, 5, 6];
+       
+    console.log(nonMutatingConcat(first, second));      
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=====
+
+    Add Elements to the End of an array Using concat instead of push
+
+    Functional programming is all about creating and using non-mutating functions.
+
+    The last challenge introduced the concat method as a way to merge arrays into a new array 
+    without mutating theoriginal arrays. Compare concat to the push method. push adds items to the end of the samearray it is called on, which mutates that aray. here's an example: 
+*/    
+    const arrPush = [1, 2, 3];
+    arrPush.push(4, 5,6);
+
+/*  arrPush would have a modified value of [1, 2, 3, 4, 5, 6], which is not the functional 
+    programming way.
+    
+    concat offers a way to merge new items to the end of an array without any mutating side effects.
+    
+    Change the nonMutatingPush function so it uses cancat to merge newItem to the end of original without mutating original or newItem arrays. The function should return an array.
+    
+    function nonMutatingPush(original, newItem) {
+         // Only change code below this line
+        return original.push(newItem);
+
+        // Only change code above this line
+    }
+
+    const first = [1, 2, 3];
+    const second = [4, 5];
+    nonMutatingPush(first, second);
+    */    
+   
+    function nonMutatingPush(original, newItem) {
+        return original.concat(newItem);
+    }
+
+    const firstArr = [1, 2, 3],
+          secondArr = [4, 5, 6];
+
+    console.log(nonMutatingPush(firstArr, secondArr));      
