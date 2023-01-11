@@ -64,6 +64,63 @@ would be converted to I like Star Wars. For this challenge. do not use the repla
     sentensify("May-the-force-be-with-you"); */    
 
     function sentensify(str) {
-        return str.split().join("I like")
+        return str.split(/\W/).join(" ")
     }
     console.log(sentensify("May-the-force-be-with-you"));
+
+//          Tests
+//    Your code should use the join method.
+//    Your code should not use the replace method.
+    console.log(sentensify("May-the-force-be-with-you")); // should return a string.
+    console.log(sentensify("May-the-force-be-with-you")); // should return the string May the force be with you.
+    console.log(sentensify("The.force.is.strong.with.this.one")); // should return the string The force is strong with this one.
+    console.log(sentensify("There,has,been,an,awakening")) // should return the string There has been an awakening.
+
+/*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    Apply Functional Programming to convert Strings to URL Slugs
+    
+    The last several challenges covered a number of useful array and string mehtods that follow functional programming principles. We've also learned about reduce, which is a paweful method
+    used to reduce problems to simpler forms. From computing averages to sorting, any array operation 
+    can be achieved by applying it. Recall that map and filter are spacial cases of reduce.
+
+    Let's combine what we've learned to solve a practical problem.
+
+    Many content management sites (CSM) have the titles of a post added to part of the URL for simple
+    bookmarking purposes. For example, if you write a Medium post titled Stop Using Reduce, it's likely
+    URL would have some form of the title string in it (.../stop-using-reduce). You may have already noticed this on the freeCodeCamp site.
+
+    Fill in the urlSlug function so it convers astring title and returns the hyphenated version for the
+    URL. You can use any of the methods covered in this section, and don't replace. 
+    
+    Here the requirements:
+        1.  The input is a string with spaces and-cased words
+        2.  The output is a string with the spaces between word replaced by a hyphen (-)
+        3.  The output should be all lower-cased letters
+        4.  The output should not have any spaces
+
+        // Only change code below this line
+        function urlSlug(title) {
+
+
+        }
+        // Only change code above this line
+        urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone");
+            */    
+
+        function urlSlug(title) {
+            return title.split(" ")
+                        // .map(a => a)
+                        .filter(a => {
+                            return (a !== /\s/)? a
+                            : "";
+                        })
+                        .join("-")
+                        .toLowerCase()
+        }
+        console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetsone"));
+
+        console.log(urlSlug("Winter Is Coming")); // should return the string winter-is-coming.
+        console.log(urlSlug(" Winter Is  Coming")); // should return the string winter-is-coming.
+        console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone")); // should return the string a-mind-needs-books-like-a-sword-needs-a-whetstone.
+        console.log(urlSlug("Hold The Door")); // should return the string hold-the-door.
