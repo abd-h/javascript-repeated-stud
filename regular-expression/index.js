@@ -155,4 +155,4 @@
     let twinkleStar = "Twinkle, twinkle, little star";
     let starRegex = /twinkle/gi; // Change this line
     let twinkleResult = twinkleStar.match(starRegex); // Change this line
-    console.log(twinkleResult);
+    console.log(twinkleResult); // ['Twinkle', 'twinkle']
